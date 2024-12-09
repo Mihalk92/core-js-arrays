@@ -515,8 +515,9 @@ function findLongestIncreasingSubsequence(/* nums */) {
  *  propagateItemsByPositionIndex([ 'a', 'b', 'c', null ]) => [ 'a', 'b', 'b', 'c', 'c', 'c',  null, null, null, null ]
  *  propagateItemsByPositionIndex([ 1,2,3,4,5 ]) => [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  const result = arr.map((el, i) => Array(i + 1).fill(el));
+  return result.flat();
 }
 
 /**
@@ -532,8 +533,21 @@ function propagateItemsByPositionIndex(/* arr */) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  let result;
+  if (n > 0) {
+    const arr1 = arr.slice(-n);
+    const arr2 = arr.slice(0, n + 1);
+    result = arr1.concat(arr2);
+    return result;
+  }
+  if (n < 0) {
+    const arr3 = arr.slice(0, -n);
+    const arr4 = arr.slice(-n);
+    result = arr4.concat(arr3);
+    return result;
+  }
+  return result /*arr.splice(-n).concat(arr);*/;
 }
 
 /**
