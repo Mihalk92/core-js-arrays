@@ -547,7 +547,7 @@ function shiftArray(arr, n) {
     result = arr4.concat(arr3);
     return result;
   }
-  return result /*arr.splice(-n).concat(arr);*/;
+  return result /* arr.splice(-n).concat(arr); */;
 }
 
 /**
@@ -586,8 +586,11 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const result = [];
+  const head = arr.splice(0, Math.floor(arr.length / 2));
+  const tail = arr.splice(arr.length - head.length);
+  return result.concat(tail).concat(arr).concat(head);
 }
 
 module.exports = {
